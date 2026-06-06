@@ -12,6 +12,10 @@ class Game extends Model
     protected $fillable = [
         'title',
         'description',
+        'launch_type',
+        'emulator_core',
+        'rom_url',
+        'external_url',
         'category',
         'embed_url',
         'thumbnail',

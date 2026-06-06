@@ -13,7 +13,11 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('category');
-            $table->string('embed_url');
+            $table->string('launch_type')->default('embed'); // 'embed' or 'emulator'
+            $table->string('emulator_core')->nullable(); // e.g. 'arcade', 'nes', 'snes'
+            $table->string('rom_url')->nullable(); // for emulator games
+            $table->string('external_url')->nullable(); // for non-embed games
+            $table->string('embed_url')->nullable(); // for embed games
             $table->string('thumbnail')->nullable();
             $table->unsignedBigInteger('plays')->default(0);
             $table->boolean('is_featured')->default(false);

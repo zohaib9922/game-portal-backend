@@ -110,4 +110,15 @@ class GameController extends Controller
 
         return response()->json($games);
     }
+
+    public function serveRom(Game $game): \Symfony\Component\HttpFoundation\BinaryFileResponse
+    {
+        $path = storage_path('app/roms/' . basename($game->rom_url));
+
+        abort_unless(file_exists($path), 404);
+
+        return response()->file($path, [
+            'Content-Type' => 'application/zip',
+        ]);
+    }
 }

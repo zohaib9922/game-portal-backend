@@ -20,4 +20,5 @@ Route::prefix('games')->group(function () {
     Route::put('/{game}',      [GameController::class, 'update']);
     Route::delete('/{game}',   [GameController::class, 'destroy']);
     Route::post('/{game}/play',[GameController::class, 'play']);
+    Route::get('/roms/{game}', [GameController::class, 'serveRom']);
 });
